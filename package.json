@@ -1,0 +1,19 @@
+{
+  "name": "frontend-references",
+  "version": "1.0.0",
+  "description": "an app that helps to find the meaning of any html, css, or js keyword",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idorenyinudoh/frontend-references.git"
+  },
+  "author": "48",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/idorenyinudoh/frontend-references/issues"
+  },
+  "homepage": "https://github.com/idorenyinudoh/frontend-references#readme"
+}
