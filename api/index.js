@@ -1,5 +1,5 @@
 const express = require('express');
-const references = require('./references');
+const references = require('../references');
 const app = express();
 // const port = 3000;
 
