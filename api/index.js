@@ -6,7 +6,7 @@ const app = express();
 app.set('view engine', 'pug');
 app.set('views', __dirname + '/../views');
 
-// app.use(express.static('../public'));
+// app.use(express.static(__dirname + '/../public'));
 
 app.use((req, res, next) => {
     res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
