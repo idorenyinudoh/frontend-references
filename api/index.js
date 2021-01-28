@@ -1,4 +1,5 @@
 const express = require('express');
+const references = require('./references');
 const app = express();
 // const port = 3000;
 
@@ -13,7 +14,7 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', {keywords: references.randomizeKeywords()});
 });
 
 // app.listen(process.env.PORT || port, () => {

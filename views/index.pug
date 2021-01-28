@@ -6,3 +6,28 @@ html(lang="en")
         link(rel="stylesheet", href="style.css")
         title frontend references
     body
+        mixin list(indexOne, indexTwo)
+            each val, index in keywords
+                if index >= indexOne && index < indexTwo
+                    li= val
+        #keywords-container
+            ul
+                +list(0, 572)
+            ul
+                +list(572, 1144)
+            ul
+                +list(1144, 1716)
+            ul
+                +list(1716, 2288)
+            ul
+                +list(2288, 2860)
+            ul
+                +list(2860, 3432)
+            ul
+                +list(3432, 4004)
+            ul
+                +list(4004, 4576)
+            ul
+                +list(4576, 5148)
+            ul
+                +list(5148, 5725)
