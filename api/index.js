@@ -13,7 +13,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
     res.render('index', {keywords: references.randomizeKeywords()});
 });
 
