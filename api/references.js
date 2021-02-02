@@ -54,13 +54,13 @@ svgAttributesStyleKeywords = getKeywords(mdnBrowserCompatData.svg.attributes.sty
 svgAttributesXlinkKeywords = getKeywords(mdnBrowserCompatData.svg.attributes.xlink),
 svgElementsKeywords = getKeywords(mdnBrowserCompatData.svg.elements);
 
-const allKeywordsAndUrlsParents = {apiKeywords, cssAtRulesKeywords, cssPropertiesKeywords, cssTypesKeywords, htmlElementsKeywords, htmlGlobalAttributesKeywords, htmlManifestKeywords, javascriptBuiltinsKeywords, javascriptClassesKeywords, javascriptFunctionsKeywords, javascriptGrammarKeywords, javascriptOperatorsKeywords, javascriptStatementsKeywords, mathmlElementsKeywords, svgAttributesKeywords, svgAttributesConditionalProcessingKeywords, svgAttributesCoreKeywords, svgAttributesEventsGlobalKeywords, svgAttributesEventsAnimationKeywords, svgAttributesEventsDocumentKeywords, svgAttributesEventsGraphicalKeywords, svgAttributesPresentationKeywords, svgAttributesStyleKeywords, svgAttributesXlinkKeywords, svgElementsKeywords};
+module.exports.allKeywordsAndUrlsParents = {apiKeywords, cssAtRulesKeywords, cssPropertiesKeywords, cssTypesKeywords, htmlElementsKeywords, htmlGlobalAttributesKeywords, htmlManifestKeywords, javascriptBuiltinsKeywords, javascriptClassesKeywords, javascriptFunctionsKeywords, javascriptGrammarKeywords, javascriptOperatorsKeywords, javascriptStatementsKeywords, mathmlElementsKeywords, svgAttributesKeywords, svgAttributesConditionalProcessingKeywords, svgAttributesCoreKeywords, svgAttributesEventsGlobalKeywords, svgAttributesEventsAnimationKeywords, svgAttributesEventsDocumentKeywords, svgAttributesEventsGraphicalKeywords, svgAttributesPresentationKeywords, svgAttributesStyleKeywords, svgAttributesXlinkKeywords, svgElementsKeywords};
 
 module.exports.groupAllKeywords = () => {
     const keywordKeysInParentsGroups = [], keywordKeysInOneGroup = [];
     
-    for(const keywordParent in allKeywordsAndUrlsParents) {
-        keywordKeysInParentsGroups.push(Object.keys(allKeywordsAndUrlsParents[keywordParent]));
+    for(const keywordParent in this.allKeywordsAndUrlsParents) {
+        keywordKeysInParentsGroups.push(Object.keys(this.allKeywordsAndUrlsParents[keywordParent]));
     }
 
     keywordKeysInParentsGroups.forEach( parentt => {

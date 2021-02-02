@@ -11,9 +11,9 @@ html(lang="en")
         title frontend references
     body
         mixin list(indexOne, indexTwo)
-            each val, index in keywords
+            each keyword, index in randomKeywords
                 if index >= indexOne && index < indexTwo
-                    li= val
+                    li= keyword
         #keywords-container
             ul
                 +list(0, 572)
@@ -38,4 +38,8 @@ html(lang="en")
         #intro
             p Find out the meaning and functionality of any keyword related to frontend web design or development, whether it's an HTML, SVG, or MathML element, CSS property, JavaScript statement, or an API's method.
             label(for="text-input") Keyword: &nbsp;
-                input#text-input(type="text", placeholder="e.g. required")
+                input#text-input(type="text", placeholder="e.g. required", list="keywords")
+                datalist#keywords
+                    each keywordParent in keywordsWithURLs
+                        each mdnURL, keyword in keywordParent
+                            option(value=keyword, data-url=mdnURL)

@@ -14,7 +14,7 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res) => {
-    res.render('index', {keywords: references.randomizeKeywords()});
+    res.render('index', {randomKeywords: references.randomizeKeywords(), keywordsWithURLs: references.allKeywordsAndUrlsParents});
 });
 
 // app.listen(process.env.PORT || port, () => {
