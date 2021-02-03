@@ -82,9 +82,11 @@ datalist {
     background-color: #cb8f9a;
 }
 option {
-    display: block;
+    display: grid;
+    align-content: center;
     box-sizing: border-box;
     width: 100%;
+    height: 40px;
     padding: 0 5px;
     background: #fff;
     font-size: 20px;
