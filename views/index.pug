@@ -38,8 +38,11 @@ html(lang="en")
         #intro
             p Find out the meaning and functionality of any keyword related to frontend web design or development, whether it's an HTML, SVG, or MathML element, CSS property, JavaScript statement, or an API's method.
             label(for="text-input") Keyword: &nbsp;
-                input#text-input(type="text", placeholder="e.g. required", list="keywords")
-                datalist#keywords
-                    each keywordParent in keywordsWithURLs
-                        each mdnURL, keyword in keywordParent
-                            option(value=keyword, data-url=mdnURL)
+                #input-datalist-container
+                    input#text-input.border-focus(type="text", placeholder="e.g. required")
+                    datalist.hide
+                        each keywordParent in keywordsWithURLs
+                            each mdnURL, keyword in keywordParent
+                                option.hide(data-url=mdnURL)= keyword
+
+        script(src="pageInteraction.js")

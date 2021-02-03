@@ -38,21 +38,109 @@ p {
     margin: 0;
 }
 label {
-    display: block;
+    display: flex;
+    flex-flow: wrap;
     width: 100%;
-    margin: calc(50px + 1vw) auto;
+    max-width: 509px;
+    margin: calc(50px + 1vw) 0;
     line-height: 40px;
+}
+#input-datalist-container {
+    display: grid;
+    width: 100%;
+    max-width: 400px;
 }
 #text-input {
     width: calc(100% - 14px);
     height: 35px;
-    max-width: 400px;
-    border: 2px solid #000;
+    border-left: 2px solid #000;
+    border-top: 2px solid #000;
+    border-right: 2px solid #000;
+    border-bottom: none;
     padding: 0 5px;
     font-size: 20px;
     letter-spacing: -0.5px;
     outline: none;
 }
 #text-input:focus {
-    border-color: #cb8f9a;
+    border-left-color: #cb8f9a;
+    border-top-color: #cb8f9a;
+    border-right-color: #cb8f9a;
+}
+.border-focus {
+    border-bottom: 2px solid #000 !important;
+}
+.border-focus:focus {
+    border-bottom-color: #cb8f9a !important;
+}
+datalist {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 414px;
+    padding: 5px;
+    background-color: #cb8f9a;
+}
+option {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 5px;
+    background: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+option:hover, option:focus {
+    background: #ffc0cb;
+}
+.hide {
+    display: none;
+}
+.slidein {
+    animation: slidein 500ms ease-in-out forwards;
+}
+.fadein {
+    animation: fadein 500ms ease-in-out forwards;
+}
+.slideout {
+    animation: slideout 500ms ease-in-out forwards;
+}
+.fadeout {
+    animation: fadeout 500ms ease-in-out forwards;
+}
+@keyframes slidein {
+    0% {
+        max-height: 0;
+    }
+    100% {
+        max-height: 210px;
+    }
+}
+@keyframes fadein {
+    0% {
+        opacity: 0;
+        width: 0;
+    }
+    100% {
+        opacity: 1;
+        width: 100%;
+    }
+}
+@keyframes slideout {
+    0% {
+        max-height: 210px;
+    }
+    100% {
+        max-height: 0px;
+    }
+}
+@keyframes fadeout {
+    0%{
+        opacity: 1;
+        width: 100%;
+    }
+    100% {
+        opacity: 0;
+        width: 0;
+    }
 }
