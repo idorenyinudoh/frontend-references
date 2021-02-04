@@ -82,6 +82,7 @@ datalist {
     background-color: #cb8f9a;
 }
 option {
+    position: relative;
     display: grid;
     align-content: center;
     box-sizing: border-box;
@@ -91,6 +92,14 @@ option {
     background: #fff;
     font-size: 20px;
     cursor: pointer;
+}
+option::after {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    height: 100%;
+    content: attr(data-keyword-type);
+    font-size: 16px;
 }
 option:hover, option:focus {
     background: #ffc0cb;

@@ -41,8 +41,23 @@ html(lang="en")
                 #input-datalist-container
                     input#text-input.border-focus(type="text", placeholder="e.g. required")
                     datalist.hide
-                        each keywordParent in keywordsWithURLs
-                            each mdnURL, keyword in keywordParent
-                                option.hide(data-url=mdnURL)= keyword
+                        each keywordParent in Object.keys(keywordsWithURLs)
+                            each mdnURL, keyword in keywordsWithURLs[keywordParent]
+                                case keywordParent
+                                    when 'apiKeywords': option.hide(data-url=mdnURL, data-keyword-type="api")= keyword
+                                    when 'cssAtRulesKeywords': option.hide(data-url=mdnURL, data-keyword-type="css")= keyword
+                                    when 'cssPropertiesKeywords': option.hide(data-url=mdnURL, data-keyword-type="css")= keyword
+                                    when 'cssTypesKeywords': option.hide(data-url=mdnURL, data-keyword-type="css")= keyword
+                                    when 'htmlElementsKeywords': option.hide(data-url=mdnURL, data-keyword-type="html")= keyword
+                                    when 'htmlGlobalAttributesKeywords': option.hide(data-url=mdnURL, data-keyword-type="html")= keyword
+                                    when 'htmlManifestKeywords': option.hide(data-url=mdnURL, data-keyword-type="html")= keyword
+                                    when 'javascriptBuiltinsKeywords': option.hide(data-url=mdnURL, data-keyword-type="js")= keyword
+                                    when 'javascriptClassesKeywords': option.hide(data-url=mdnURL, data-keyword-type="js")= keyword
+                                    when 'javascriptFunctionsKeywords': option.hide(data-url=mdnURL, data-keyword-type="js")= keyword
+                                    when 'javascriptGrammarKeywords': option.hide(data-url=mdnURL, data-keyword-type="js")= keyword
+                                    when 'javascriptOperatorsKeywords': option.hide(data-url=mdnURL, data-keyword-type="js")= keyword
+                                    when 'javascriptStatementsKeywords': option.hide(data-url=mdnURL, data-keyword-type="js")= keyword
+                                    when 'mathmlElementsKeywords': option.hide(data-url=mdnURL, data-keyword-type="mathml")= keyword
+                                    default: option.hide(data-url=mdnURL, data-keyword-type="svg")= keyword
 
         script(src="pageInteraction.js")
