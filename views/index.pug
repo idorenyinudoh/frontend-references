@@ -8,6 +8,7 @@ html(lang="en")
         link(rel="icon", type="image/png", sizes="16x16", href="/favicon-16x16.png")
         link(rel="manifest", href="/site.webmanifest")
         link(rel="stylesheet", href="style.css")
+        link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
         title frontend references
     body
         mixin list(indexOne, indexTwo)
@@ -59,5 +60,12 @@ html(lang="en")
                                     when 'javascriptStatementsKeywords': option.hide(data-url=mdnURL, data-keyword-type="js")= keyword
                                     when 'mathmlElementsKeywords': option.hide(data-url=mdnURL, data-keyword-type="mathml")= keyword
                                     default: option.hide(data-url=mdnURL, data-keyword-type="svg")= keyword
+        #search-results.hide
+            header
+                button.material-icons arrow_back
+                p#search-results-text Results for "
+                    span#search-term
+                    | "
+            iframe(src="", frameborder="0")
 
         script(src="pageInteraction.js")
