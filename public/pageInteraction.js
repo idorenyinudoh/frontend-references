@@ -4,7 +4,7 @@ const searchResultsDiv = document.getElementById('search-results');
 const textInput = document.getElementById('text-input');
 const dataList = document.querySelector('datalist');
 const options = document.querySelectorAll('option');
-const backButton = document.querySelector('button');
+const backButton = document.querySelector('button.back');
 let rAF;
 
 const scrollListElements = () => {

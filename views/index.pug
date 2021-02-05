@@ -60,9 +60,17 @@ html(lang="en")
                                     when 'javascriptStatementsKeywords': option.hide(data-url=mdnURL, data-keyword-type="js")= keyword
                                     when 'mathmlElementsKeywords': option.hide(data-url=mdnURL, data-keyword-type="mathml")= keyword
                                     default: option.hide(data-url=mdnURL, data-keyword-type="svg")= keyword
+            footer
+                p#credits *A big shout out to everyone that contributes to 
+                    a(href="https://developer.mozilla.org", target="_blank") MDN Web Docs
+                    |  . This project wouldn't have been a success without MDN.*
+                p#me Made with 
+                    span.red &hearts;
+                    |  by 
+                    button.my-name Idorenyin Udoh
         #search-results.hide
             header
-                button.material-icons arrow_back
+                button.back.material-icons arrow_back
                 p#search-results-text Results for "
                     span#search-term
                     | "

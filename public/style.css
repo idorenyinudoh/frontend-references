@@ -158,6 +158,37 @@ option:checked {
         width: 0;
     }
 }
+footer {
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+}
+a {
+    text-decoration: underline;
+    color: #000;
+    outline: none;
+}
+a:focus {
+    outline: 2px solid;
+}
+.red {
+    color: red;
+    font-size: 22px;
+}
+#me {
+    margin-top: 10px;
+}
+.my-name {
+    width: max-content;
+    height: max-content;
+    font-size: inherit;
+    letter-spacing: inherit;
+    float: inherit;
+    text-decoration: underline;
+}
+.my-name:focus {
+    outline: 2px solid;
+}
 header {
     display: flex;
     flex-flow: wrap;
@@ -175,14 +206,14 @@ button {
     cursor: pointer;
     outline: none;
 }
-button:focus {
+.back:focus {
     border: 2px solid #cb8f9a;
 }
-button:active {
+.back:active {
     transform: scale(0.9);
     transition: transform 100ms ease-in-out;
 }
-button:not(:active) {
+.back:not(:active) {
     transition: transform 100ms ease-in-out;
 }
 #search-results-text {
