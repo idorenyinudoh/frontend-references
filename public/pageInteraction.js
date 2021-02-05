@@ -1,7 +1,10 @@
 const lists = document.querySelectorAll('ul');
+const introDiv = document.getElementById('intro');
+const searchResultsDiv = document.getElementById('search-results');
 const textInput = document.getElementById('text-input');
 const dataList = document.querySelector('datalist');
 const options = document.querySelectorAll('option');
+const backButton = document.querySelector('button');
 let rAF;
 
 const scrollListElements = () => {
@@ -13,6 +16,38 @@ const scrollListElements = () => {
         }
     });
     rAF = requestAnimationFrame(scrollListElements);
+}
+
+const showResults = (searchedKeywordOption) => {
+    introDiv.classList.add('fadedivout');
+    document.getElementById('search-term').textContent = searchedKeywordOption.value;
+    document.querySelector('iframe').src = searchedKeywordOption.getAttribute('data-url');
+    requestAnimationFrame(scrollListElements);
+    setTimeout(() => {
+        introDiv.classList.replace('fadedivout', 'hide');
+    }, 500);
+    setTimeout(() => {
+        searchResultsDiv.classList.replace('hide', 'fadedivin');
+    }, 3000);
+    setTimeout(() => {
+        searchResultsDiv.classList.remove('fadedivin');
+        cancelAnimationFrame(rAF);
+    }, 4500);
+}
+
+const hideResults = () => {
+    searchResultsDiv.classList.add('fadedivout');
+    requestAnimationFrame(scrollListElements);
+    setTimeout(() => {
+        searchResultsDiv.classList.replace('fadedivout', 'hide');
+    }, 500);
+    setTimeout(() => {
+        introDiv.classList.replace('hide', 'fadedivin');
+    }, 3000);
+    setTimeout(() => {
+        introDiv.classList.remove('fadedivin');
+        cancelAnimationFrame(rAF);
+    }, 4500);
 }
 
 textInput.addEventListener('input', () => {
@@ -125,6 +160,8 @@ textInput.addEventListener('keyup', (e) => {
         options.forEach( element => {
             if(element.selected) {
                 textInput.value = element.value;
+                showResults(element);
+                textInput.blur();
             }
         });
     }
@@ -133,6 +170,12 @@ textInput.addEventListener('keyup', (e) => {
 options.forEach( element => {
     element.addEventListener('click', () => {
         textInput.value = element.value;
+        showResults(element);
+    });
+});
+
+backButton.addEventListener('click', hideResults);
+
 window.addEventListener('load', () => {
     lists.forEach((element, index) => {
         if(index % 2 === 0) element.lastChild.scrollIntoView();
