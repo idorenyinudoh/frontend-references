@@ -26,9 +26,8 @@ textInput.addEventListener('input', () => {
             return 0;
         });
 
-        suggestedOptions.filter((element, index) => {
-            if(index >= 0 && index < 5) return element;
-        }).forEach( elem => {
+        suggestedOptions.slice(0, 5)
+        .forEach( elem => {
             elem.classList.replace('hide', 'fadein');
             setTimeout(() => {
                 elem.classList.remove('fadein');
