@@ -108,4 +108,17 @@ textInput.addEventListener('keyup', (e) => {
             }
         }
     }
+    if(e.key === 'Enter' && !dataList.classList.contains('hide')) {
+        options.forEach( element => {
+            if(element.selected) {
+                textInput.value = element.value;
+            }
+        });
+    }
+});
+
+options.forEach( element => {
+    element.addEventListener('click', () => {
+        textInput.value = element.value;
+    });
 });
