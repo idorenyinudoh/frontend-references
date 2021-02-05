@@ -16,6 +16,7 @@ textInput.addEventListener('input', () => {
 
         options.forEach( element => {
             if(!element.classList.contains('hide')) element.classList.add('hide');
+            if(element.selected) element.selected = false;
             if(element.textContent.startsWith(textInput.value) === true && element.classList.contains('hide')) suggestedOptions.push(element);
         });
 
@@ -65,5 +66,49 @@ textInput.addEventListener('blur', () => {
                 }, 500);
             }
         });
+    }
+});
+
+textInput.addEventListener('keyup', (e) => {
+    if(e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        if(!dataList.classList.contains('hide')) {
+            const showingOptions = [];
+            let selectedOptionIndex;
+
+            options.forEach( element => {
+                if(!element.classList.contains('hide')) {
+                    showingOptions.push(element);
+                }
+            });
+
+            showingOptions.forEach((element, index) => {
+                if(element.selected) {
+                    selectedOptionIndex = index;
+                    element.selected = false;
+                }
+            });
+
+            if(e.key === 'ArrowDown') {
+                if(!isNaN(selectedOptionIndex)) {
+                    if(selectedOptionIndex === 4) {
+                        showingOptions[0].selected = true;
+                    } else {
+                        showingOptions[selectedOptionIndex + 1].selected = true;
+                    }
+                } else {
+                    showingOptions[0].selected = true;
+                }
+            }
+
+            if(e.key === 'ArrowUp') {
+                if(!isNaN(selectedOptionIndex)) {
+                    if(selectedOptionIndex === 0) {
+                        showingOptions[4].selected = true;
+                    } else {
+                        showingOptions[selectedOptionIndex - 1].selected = true;
+                    }
+                }
+            }
+        }
     }
 });

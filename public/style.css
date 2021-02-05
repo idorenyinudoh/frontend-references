@@ -101,7 +101,7 @@ option::after {
     content: attr(data-keyword-type);
     font-size: 16px;
 }
-option:hover, option:focus {
+option:hover, option:checked {
     background: #ffc0cb;
 }
 .hide {
