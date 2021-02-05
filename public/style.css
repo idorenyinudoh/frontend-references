@@ -178,17 +178,6 @@ a:focus {
 #me {
     margin-top: 10px;
 }
-.my-name {
-    width: max-content;
-    height: max-content;
-    font-size: inherit;
-    letter-spacing: inherit;
-    float: inherit;
-    text-decoration: underline;
-}
-.my-name:focus {
-    outline: 2px solid;
-}
 header {
     display: flex;
     flex-flow: wrap;
@@ -206,14 +195,14 @@ button {
     cursor: pointer;
     outline: none;
 }
-.back:focus {
+button:focus {
     border: 2px solid #cb8f9a;
 }
-.back:active {
+button:active {
     transform: scale(0.9);
     transition: transform 100ms ease-in-out;
 }
-.back:not(:active) {
+button:not(:active) {
     transition: transform 100ms ease-in-out;
 }
 #search-results-text {
