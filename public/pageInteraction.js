@@ -9,11 +9,8 @@ let rAF;
 
 const scrollListElements = () => {
     lists.forEach((element, index) => {
-        if(index % 2 === 0) {
-            element.scrollBy(-1, 0);
-        } else {
-            element.scrollBy(1, 0);
-        }
+        if(index % 2 === 0) element.scrollBy(-1, 0);
+        else element.scrollBy(1, 0);
     });
     rAF = requestAnimationFrame(scrollListElements);
 }
@@ -122,9 +119,7 @@ textInput.addEventListener('keyup', (e) => {
         let selectedOptionIndex;
 
         options.forEach( element => {
-            if(!element.classList.contains('hide')) {
-                showingOptions.push(element);
-            }
+            if(!element.classList.contains('hide')) showingOptions.push(element);
         });
 
         showingOptions.forEach((element, index) => {
@@ -136,23 +131,15 @@ textInput.addEventListener('keyup', (e) => {
 
         if(e.key === 'ArrowDown') {
             if(!isNaN(selectedOptionIndex)) {
-                if(selectedOptionIndex === showingOptions.length - 1) {
-                    showingOptions[0].selected = true;
-                } else {
-                    showingOptions[selectedOptionIndex + 1].selected = true;
-                }
-            } else {
-                showingOptions[0].selected = true;
-            }
+                if(selectedOptionIndex === showingOptions.length - 1) showingOptions[0].selected = true;
+                else showingOptions[selectedOptionIndex + 1].selected = true;
+            } else showingOptions[0].selected = true;
         }
 
         if(e.key === 'ArrowUp') {
             if(!isNaN(selectedOptionIndex)) {
-                if(selectedOptionIndex === 0) {
-                    showingOptions[showingOptions.length - 1].selected = true;
-                } else {
-                    showingOptions[selectedOptionIndex - 1].selected = true;
-                }
+                if(selectedOptionIndex === 0) showingOptions[showingOptions.length - 1].selected = true;
+                else showingOptions[selectedOptionIndex - 1].selected = true;
             }
         }
     }
