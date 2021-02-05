@@ -88,7 +88,7 @@ textInput.addEventListener('keyup', (e) => {
 
         if(e.key === 'ArrowDown') {
             if(!isNaN(selectedOptionIndex)) {
-                if(selectedOptionIndex === 4) {
+                if(selectedOptionIndex === showingOptions.length - 1) {
                     showingOptions[0].selected = true;
                 } else {
                     showingOptions[selectedOptionIndex + 1].selected = true;
@@ -101,7 +101,7 @@ textInput.addEventListener('keyup', (e) => {
         if(e.key === 'ArrowUp') {
             if(!isNaN(selectedOptionIndex)) {
                 if(selectedOptionIndex === 0) {
-                    showingOptions[4].selected = true;
+                    showingOptions[showingOptions.length - 1].selected = true;
                 } else {
                     showingOptions[selectedOptionIndex - 1].selected = true;
                 }
