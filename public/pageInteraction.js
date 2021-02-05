@@ -1,6 +1,19 @@
+const lists = document.querySelectorAll('ul');
 const textInput = document.getElementById('text-input');
 const dataList = document.querySelector('datalist');
 const options = document.querySelectorAll('option');
+let rAF;
+
+const scrollListElements = () => {
+    lists.forEach((element, index) => {
+        if(index % 2 === 0) {
+            element.scrollBy(-1, 0);
+        } else {
+            element.scrollBy(1, 0);
+        }
+    });
+    rAF = requestAnimationFrame(scrollListElements);
+}
 
 textInput.addEventListener('input', () => {
     if(textInput.value !== '') {
@@ -120,5 +133,8 @@ textInput.addEventListener('keyup', (e) => {
 options.forEach( element => {
     element.addEventListener('click', () => {
         textInput.value = element.value;
+window.addEventListener('load', () => {
+    lists.forEach((element, index) => {
+        if(index % 2 === 0) element.lastChild.scrollIntoView();
     });
 });
