@@ -69,43 +69,41 @@ textInput.addEventListener('blur', () => {
 });
 
 textInput.addEventListener('keyup', (e) => {
-    if(e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-        if(!dataList.classList.contains('hide')) {
-            const showingOptions = [];
-            let selectedOptionIndex;
+    if(e.key === 'ArrowDown' || e.key === 'ArrowUp' && !dataList.classList.contains('hide')) {
+        const showingOptions = [];
+        let selectedOptionIndex;
 
-            options.forEach( element => {
-                if(!element.classList.contains('hide')) {
-                    showingOptions.push(element);
-                }
-            });
-
-            showingOptions.forEach((element, index) => {
-                if(element.selected) {
-                    selectedOptionIndex = index;
-                    element.selected = false;
-                }
-            });
-
-            if(e.key === 'ArrowDown') {
-                if(!isNaN(selectedOptionIndex)) {
-                    if(selectedOptionIndex === 4) {
-                        showingOptions[0].selected = true;
-                    } else {
-                        showingOptions[selectedOptionIndex + 1].selected = true;
-                    }
-                } else {
-                    showingOptions[0].selected = true;
-                }
+        options.forEach( element => {
+            if(!element.classList.contains('hide')) {
+                showingOptions.push(element);
             }
+        });
 
-            if(e.key === 'ArrowUp') {
-                if(!isNaN(selectedOptionIndex)) {
-                    if(selectedOptionIndex === 0) {
-                        showingOptions[4].selected = true;
-                    } else {
-                        showingOptions[selectedOptionIndex - 1].selected = true;
-                    }
+        showingOptions.forEach((element, index) => {
+            if(element.selected) {
+                selectedOptionIndex = index;
+                element.selected = false;
+            }
+        });
+
+        if(e.key === 'ArrowDown') {
+            if(!isNaN(selectedOptionIndex)) {
+                if(selectedOptionIndex === 4) {
+                    showingOptions[0].selected = true;
+                } else {
+                    showingOptions[selectedOptionIndex + 1].selected = true;
+                }
+            } else {
+                showingOptions[0].selected = true;
+            }
+        }
+
+        if(e.key === 'ArrowUp') {
+            if(!isNaN(selectedOptionIndex)) {
+                if(selectedOptionIndex === 0) {
+                    showingOptions[4].selected = true;
+                } else {
+                    showingOptions[selectedOptionIndex - 1].selected = true;
                 }
             }
         }
