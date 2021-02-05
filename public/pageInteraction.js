@@ -174,6 +174,15 @@ options.forEach( element => {
     });
 });
 
+textInput.addEventListener('change', () => {
+    options.forEach( element => {
+        if(element.value === textInput.value) {
+            showResults(element);
+            textInput.blur();
+        }
+    });
+});
+
 backButton.addEventListener('click', hideResults);
 
 window.addEventListener('load', () => {
