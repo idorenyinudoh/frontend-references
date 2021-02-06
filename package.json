@@ -2,10 +2,10 @@
   "name": "frontend-references",
   "version": "1.0.0",
   "description": "an app that helps to find the meaning of any html, css, or js keyword",
-  "main": "./api/index.js",
+  "main": "index.js",
   "scripts": {
-    "test": "nodemon api/index.js",
-    "build": "node api/index.js"
+    "test": "nodemon index.js",
+    "build": "node index.js"
   },
   "repository": {
     "type": "git",
