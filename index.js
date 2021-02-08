@@ -17,6 +17,10 @@ app.get('/', (req, res) => {
     res.render('index', {randomKeywords: references.randomizeKeywords(), keywordsWithURLs: references.allKeywordsAndUrlsParents});
 });
 
+app.get('/sitemap', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public', 'sitemap.xml'));
+});
+
 app.listen(process.env.PORT || port, () => {
     console.log(`Express app running on http://localhost:${port}`);
 });
